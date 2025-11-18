@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SailorV Roleplay Codex</title>
+  <style>
+    :root {
+      --bg: #0f1115;
+      --panel: #171a21;
+      --accent: #4fc3f7;
+      --muted: #9ea7b3;
+      --text: #e8ecf2;
+      --danger: #ef5350;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: radial-gradient(circle at 20% 20%, rgba(79,195,247,0.08), transparent 30%), var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 32px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 1100px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+      letter-spacing: 0.5px;
+    }
+
+    header .tagline {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    nav {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 10px;
+      margin: 16px 0 20px;
+    }
+
+    nav button {
+      border: 1px solid #222735;
+      background: var(--panel);
+      color: var(--text);
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    nav button:hover {
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    nav button.active {
+      background: linear-gradient(135deg, #1d2430, #1f2c3a);
+      border-color: var(--accent);
+      box-shadow: 0 8px 24px rgba(79,195,247,0.15);
+    }
+
+    .tab {
+      display: none;
+      background: var(--panel);
+      border: 1px solid #222735;
+      border-radius: 14px;
+      padding: 20px 22px;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+      animation: fadeIn 0.24s ease;
+    }
+
+    .tab.active { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: 22px;
+      color: var(--accent);
+    }
+
+    h3 {
+      margin-bottom: 4px;
+      margin-top: 20px;
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #c5d8ff;
+    }
+
+    p { margin: 4px 0 10px; color: #d5d9e2; }
+
+    ul {
+      margin: 6px 0 14px 18px;
+      padding: 0;
+      color: #d5d9e2;
+    }
+
+    li { margin-bottom: 6px; }
+
+    .muted { color: var(--muted); }
+    .danger { color: var(--danger); font-weight: 700; }
+    .inline-tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border: 1px solid #273143;
+      border-radius: 20px;
+      font-size: 12px;
+      color: var(--muted);
+      margin-left: 6px;
+    }
+
+    footer {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 720px) {
+      body { padding: 18px; }
+      header { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div>
+        <h1>SailorV Roleplay Codex</h1>
+        <div class="tagline">Mit Betreten des Servers akzeptierst du dieses Regelwerk. Unwissenheit schuetzt nicht vor Strafe.</div>
+      </div>
+      <div class="inline-tag">Sei kein Idiot.</div>
+    </header>
+
+    <nav>
+      <button class="active" data-tab="regeln">Regelwerk</button>
+      <button data-tab="fraktionen">Fraktionsregelwerk</button>
+      <button data-tab="support">Support</button>
+      <button data-tab="trolling">Trolling / Baiting</button>
+      <button data-tab="strafkatalog">Strafkatalog</button>
+    </nav>
+
+    <section id="regeln" class="tab active">
+      <h2>Regelwerk</h2>
+      <p><strong>Praemisse:</strong> Respekt, RP-Fokus, Fairplay. Realistisch, logisch, kein Clown-RP.</p>
+
+      <h3>&sect;1 - Verhalten &amp; Community</h3>
+      <ul>
+        <li>Respekt im Chat &amp; Voice, kein Rassismus/Sexismus/Diskriminierung.</li>
+        <li>Umgang mit Teamlern: hoeflich, kooperativ, Anweisungen folgen.</li>
+      </ul>
+
+      <h3>&sect;2 - Modding / Cheating</h3>
+      <ul>
+        <li>Cheats, Menues, Lua-Executors, Modding verboten.</li>
+        <li>Bugusing / Duping untersagt.</li>
+        <li class="danger">Konsequenzen: in der Regel permanenter Bann.</li>
+      </ul>
+
+      <h3>&sect;3 - RP-Basics</h3>
+      <ul>
+        <li><strong>FailRP:</strong> Unlogisches Verhalten, bricht Immersion.</li>
+        <li><strong>PowerRP:</strong> Anderen keine Handlungschance lassen.</li>
+        <li><strong>FearRP:</strong> Angst ums eigene Leben darstellen.</li>
+        <li><strong>Mixing:</strong> OOC &amp; IC trennen, keine Infos leaken.</li>
+      </ul>
+
+      <h3>&sect;4 - Kampfsituationen</h3>
+      <ul>
+        <li>RDM / VDM / MRDM verboten. Gewalt nur mit Grund &amp; Ansage.</li>
+        <li>Situation sauber aufbauen: Ansage, Begruendung, Zeit zum Reagieren.</li>
+        <li>Keine Schuesse in Safezones oder aus Jux.</li>
+      </ul>
+
+      <h3>&sect;5 - Safezones / No-RP</h3>
+      <ul>
+        <li>Safe: Supportraeume, Spawn, Garagen nach Servervorgabe.</li>
+        <li>Verboten: Waffen ziehen, RDM, Trolling, Kampfvorteile.</li>
+      </ul>
+
+      <footer>
+        Regelwerk kann jederzeit angepasst werden. Stand: <span id="stand-regeln"></span>
+      </footer>
+    </section>
+
+    <section id="fraktionen" class="tab">
+      <h2>Fraktionsregelwerk</h2>
+      <p><strong>Ziel:</strong> Ordnung &amp; Vorbildfunktion fuer Polizei, Medics, Gangs &amp; Staatsfraktionen.</p>
+
+      <h3>F &sect;1 - Allgemeines</h3>
+      <ul>
+        <li>Fraktionen repraesentieren den Server, pflegen gutes RP.</li>
+        <li>Vorbildfunktion, interne Regeln respektieren.</li>
+      </ul>
+
+      <h3>F &sect;2 - Polizei / Staatsfraktionen</h3>
+      <ul>
+        <li>Verhaeltnismaessigkeit wahren, nicht direkt schiessen.</li>
+        <li>Dokumentationspflicht bei groesseren Einsaetzen.</li>
+        <li>Kein PowerRP gegenueber Zivilisten.</li>
+        <li>Korruption nur in Absprache der Leitung / Team.</li>
+      </ul>
+
+      <h3>F &sect;3 - Medics</h3>
+      <ul>
+        <li>Neutralitaet wahren, kein Fraktionsbias.</li>
+        <li>Heal/Revive nicht fuer eigene Vorteile ausnutzen.</li>
+        <li>Kein Combat-Revive mitten im Feuergefecht.</li>
+      </ul>
+
+      <h3>F &sect;4 - Gangs / Illegale Fraktionen</h3>
+      <ul>
+        <li>Klare Struktur, Hierarchie, Story-Hintergrund.</li>
+        <li>Gebietsbeanspruchung nur nach Servervorgabe.</li>
+        <li>Waffen- &amp; Drogen-RP mit Story, kein Dauer-Deathmatch.</li>
+      </ul>
+
+      <h3>F &sect;5 - Fraktionsinterne Strafen</h3>
+      <ul>
+        <li>Verwarnungen, Degradierung, Rauswurf moeglich.</li>
+        <li>Schwere Verstoesse ans Team melden.</li>
+      </ul>
+
+      <footer>
+        Regelwerk kann jederzeit angepasst werden. Stand: <span id="stand-fraktionen"></span>
+      </footer>
+    </section>
+
+    <section id="support" class="tab">
+      <h2>Support</h2>
+      <p><strong>Ziel:</strong> Klare Ablaeufe, faire Entscheidungen.</p>
+
+      <h3>S &sect;1 - Supportwege</h3>
+      <ul>
+        <li>Ticket via Discord / Ingame: Name, ID, Uhrzeit, Clip angeben.</li>
+        <li>Support-Channel beachten, keine DMs an Teamler spammen.</li>
+      </ul>
+
+      <h3>S &sect;2 - Verhalten im Support</h3>
+      <ul>
+        <li>Respektvoll bleiben, keine Storys erfinden.</li>
+        <li>Entscheidung des Supports akzeptieren.</li>
+      </ul>
+
+      <h3>S &sect;3 - Beweise &amp; Clips</h3>
+      <ul>
+        <li>Mindestlaenge: 30-60 Sekunden vor der Situation.</li>
+        <li>Keine Hardcuts direkt ab Schusswechsel.</li>
+      </ul>
+
+      <h3>S &sect;4 - Einspruch gegen Strafen</h3>
+      <ul>
+        <li>Frist: 7 Tage nach Strafe.</li>
+        <li>Ort: Discord-Kanal "Beschwerden".</li>
+        <li>Begruendung + Clips bereitstellen.</li>
+      </ul>
+
+      <footer>
+        Regelwerk kann jederzeit angepasst werden. Stand: <span id="stand-support"></span>
+      </footer>
+    </section>
+
+    <section id="trolling" class="tab">
+      <h2>Trolling / Baiting</h2>
+      <p><strong>Ziel:</strong> Stoerungen buendeln und klar sanktionieren.</p>
+
+      <h3>T &sect;1 - Trolling</h3>
+      <ul>
+        <li>Dauerhaftes Provozieren, Spammen, Rumgroelen.</li>
+        <li>Szenen bewusst zerstoeren, Random Unsinn.</li>
+      </ul>
+
+      <h3>T &sect;2 - Baiting</h3>
+      <ul>
+        <li>Cop Baiting, Gang Baiting: sinnloses Provozieren.</li>
+        <li>Dauerhaftes Hinterherfahren, Blockieren.</li>
+      </ul>
+
+      <h3>T &sect;3 - Konsequenzen</h3>
+      <ul>
+        <li>Verwarnung -&gt; Admin-Jail -&gt; Kick -&gt; Bann.</li>
+        <li>Haerte richtet sich nach Haeufigkeit &amp; Absicht.</li>
+      </ul>
+
+      <footer>
+        Regelwerk kann jederzeit angepasst werden. Stand: <span id="stand-trolling"></span>
+      </footer>
+    </section>
+
+    <section id="strafkatalog" class="tab">
+      <h2>Strafkatalog</h2>
+      <p><strong>Hinweis:</strong> Team besitzt Ermessensspielraum je nach Schwere &amp; Wiederholung.</p>
+
+      <h3>B &sect;1 - Banns</h3>
+      <ul>
+        <li>Modding / Cheating - <strong>Perma</strong></li>
+        <li>Rassistische Aeusserungen - <strong>Perma</strong></li>
+        <li>Respektloses Verhalten gegenueber Verstorbenen - <strong>Perma</strong></li>
+        <li>Familiaere Beleidigung - <strong>Perma</strong></li>
+      </ul>
+
+      <h3>B &sect;2 - Admin Jail (Minuten-System)</h3>
+      <ul>
+        <li>FailRP - 5 / 10 Min</li>
+        <li>PowerRP - 10 / 15 Min</li>
+        <li>RDM - 15 Min</li>
+        <li>MRDM - 30 Min</li>
+        <li>VDM - 10 Min</li>
+        <li>MVDM - 30 Min</li>
+        <li>Trolling - 30 Min</li>
+      </ul>
+
+      <h3>B &sect;3 - Ermessensspielraum</h3>
+      <ul>
+        <li>Team darf Strafen erhoehen oder mildern.</li>
+        <li>Wiederholte Verstoesse -&gt; hoehere Strafen.</li>
+      </ul>
+
+      <footer>
+        Regelwerk kann jederzeit angepasst werden. Stand: <span id="stand-strafkatalog"></span>
+      </footer>
+    </section>
+  </div>
+
+  <script>
+    // Tab switching
+    const buttons = document.querySelectorAll("nav button");
+    const tabs = document.querySelectorAll(".tab");
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        buttons.forEach((b) => b.classList.remove("active"));
+        tabs.forEach((t) => t.classList.remove("active"));
+        button.classList.add("active");
+        document.getElementById(button.dataset.tab).classList.add("active");
+      });
+    });
+
+    // Set "Stand" date to today's date (DD.MM.YYYY)
+    const dateString = new Date().toLocaleDateString("de-DE");
+    document.querySelectorAll("[id^='stand-']").forEach((el) => {
+      el.textContent = dateString;
+    });
+  </script>
+</body>
+</html>
